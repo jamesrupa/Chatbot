@@ -4,11 +4,7 @@ public class ChatbotRunner {
 
     public static final String exit = "bye";
 
-    /**
-     * Create a Magpie, give it user input, and print its replies.
-     */
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         Chatbot steve = new Chatbot();
 
         System.out.println (steve.getGreeting());

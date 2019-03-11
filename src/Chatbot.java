@@ -10,15 +10,23 @@ public class Chatbot {
         String response = "";
         if (statement.length() == 0) {
             response = "Say something, please.";
+        } else if (findKeyword(statement,"hi steve") >= 0) {
+            response = "How's it going?";
+        } else if (findKeyword(statement,"hi") >= 0 || (findKeyword(statement,"hello")) >= 0) {
+            response = "Well, hello there. How's it going?";
+        } else if (findKeyword(statement, "good") >= 0 || (findKeyword(statement, "bad")) >= 0) {
+            response = "Why is that? I need to know more.";
         } else if (findKeyword(statement, "no") >= 0) {
             response = "Why so negative?";
-        } else if (findKeyword(statement, "mother") >= 0 || findKeyword(statement, "father") >= 0
+        } else if (findKeyword(statement, "science fair") >= 0) {
+            response = "I know it's great isn't it.";
+        } else if (findKeyword(statement, "why") >= 0) {
+            response = "Because...";
+        } else if (findKeyword(statement, "weather") >= 0) {
+            response = "I don't know check your phone.";
+        }else if (findKeyword(statement, "mother") >= 0 || findKeyword(statement, "father") >= 0
                 || findKeyword(statement, "sister") >= 0 || findKeyword(statement, "brother") >= 0) {
             response = "Tell me more about your family.";
-        } else if (findKeyword(statement,"hi") >= 0 || (findKeyword(statement,"hello")) >= 0) {
-            response = "Well hello there.";
-        } else if (findKeyword(statement,"Hi Steve") >= 0) {
-            response = "What's up?";
         } else if (findKeyword(statement, "I want to", 0) >= 0) {
             response = transformIWantToStatement(statement);
         } else if (findKeyword(statement, "I want", 0) >= 0) {
@@ -191,6 +199,11 @@ public class Chatbot {
     private String [] randomResponses = {
             "Interesting, tell me more",
             "Hmmm.",
+            "Is that right?",
+            "Wow, really",
+            "I don't know that one.",
+            "Ask me something different.",
             "Do you really think so?",
-            "You don't say." };
+            "You don't say."
+    };
 }
